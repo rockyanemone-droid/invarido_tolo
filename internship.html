@@ -52,7 +52,6 @@
 
         button:hover { background:#1b335f; }
 
-        /* Verification Screen */
         .verification-screen {
             display: none;
             max-width: 600px;
@@ -76,7 +75,6 @@
             background: #0f1f3d;
             transition: width 0.4s;
         }
-
     </style>
 </head>
 
@@ -129,7 +127,6 @@
     </form>
 </div>
 
-<!-- Fake Verification Screen -->
 <div class="verification-screen" id="verifySection">
     <h2>Verifying Your Data...</h2>
     <p>Please wait while our system validates your information.</p>
@@ -140,11 +137,9 @@
 </div>
 
 <script>
-
 document.getElementById("internForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    // Hide form
     document.getElementById("formSection").style.display = "none";
     document.getElementById("verifySection").style.display = "block";
 
@@ -160,9 +155,7 @@ document.getElementById("internForm").addEventListener("submit", function(e){
             progress.style.width = width + "%";
         }
     }, 400);
-
 });
-
 </script>
 
 </body>
