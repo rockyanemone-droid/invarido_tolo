@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Verification</title>
-  <link rel="stylesheet" href="style.css">
+<title>Security Verification | Invarido Tolo</title>
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f9;}
+.header{background:#0f1f3d;color:white;padding:20px 60px;font-weight:bold;}
+.container{max-width:700px;margin:100px auto;background:white;padding:50px;box-shadow:0 5px 20px rgba(0,0,0,0.1);text-align:center;}
+.btn{background:#0f1f3d;color:white;padding:12px 20px;border:none;cursor:pointer;}
+.btn:hover{background:#1b335f;}
+</style>
 </head>
 <body>
 
-<div class="card">
-  <h2>Verification Required</h2>
-  <p>Please confirm to continue</p>
+<div class="header">Invarido Tolo Security Verification System</div>
 
-  <input type="checkbox"> I am not a robot
+<div class="container">
+<h2>Multi-Layer Identity Confirmation</h2>
+<p>To prevent automated activity and protect applicant data, please verify your identity.</p>
 
-  <br><br>
-  <a href="terms.html">
-    <button>Continue</button>
-  </a>
+<input type="checkbox"> I confirm I am a legitimate applicant<br><br>
+
+<button class="btn" onclick="window.location.href='terms.html'">Proceed to Legal Agreement</button>
 </div>
 
 </body>
