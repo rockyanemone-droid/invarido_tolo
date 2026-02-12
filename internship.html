@@ -1,41 +1,169 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Internship Application | Invarido Tolo</title>
-<style>
-body{margin:0;font-family:Arial;background:#f4f6f9;}
-.container{max-width:900px;margin:50px auto;background:white;padding:50px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
-input{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;}
-button{background:#0f1f3d;color:white;padding:12px 20px;border:none;cursor:pointer;}
-button:hover{background:#1b335f;}
-</style>
+    <title>Internship Application | Invarido Tolo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+
+        .header {
+            background: #0f1f3d;
+            color: white;
+            padding: 20px 60px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 { color:#0f1f3d; }
+
+        label {
+            font-size: 13px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #0f1f3d;
+            color: white;
+            padding: 14px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        button:hover { background:#1b335f; }
+
+        /* Verification Screen */
+        .verification-screen {
+            display: none;
+            max-width: 600px;
+            margin: 120px auto;
+            background: white;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 100%;
+            background: #ddd;
+            height: 20px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #0f1f3d;
+            transition: width 0.4s;
+        }
+
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-<h2>Internship Application Form</h2>
-
-<input type="text" placeholder="First Name">
-<input type="text" placeholder="Last Name">
-<input type="text" placeholder="Mobile Number">
-<input type="email" placeholder="Email Address">
-<input type="text" placeholder="House Address">
-<input type="text" placeholder="College Name">
-<input type="text" placeholder="School Name">
-<input type="text" placeholder="Aadhaar / PAN Number">
-<input type="date">
-
-Upload Resume (PDF):<br>
-<input type="file"><br>
-
-Upload Photo:<br>
-<input type="file"><br><br>
-
-<button onclick="window.location.href='success.html'">
-Submit Application
-</button>
-
+<div class="header">
+    Invarido Tolo | Internship Candidate Data Submission
 </div>
+
+<div class="container" id="formSection">
+    <h2>Internship Application Form</h2>
+
+    <form id="internForm">
+
+        <label>First Name *</label>
+        <input type="text" required>
+
+        <label>Last Name *</label>
+        <input type="text" required>
+
+        <label>Mobile Number *</label>
+        <input type="text" required>
+
+        <label>Email Address *</label>
+        <input type="email" required>
+
+        <label>Date of Birth *</label>
+        <input type="date" required>
+
+        <label>House Address *</label>
+        <input type="text" required>
+
+        <label>College Name *</label>
+        <input type="text" required>
+
+        <label>School Name *</label>
+        <input type="text" required>
+
+        <label>Aadhaar / PAN Number *</label>
+        <input type="text" required>
+
+        <label>Upload Resume (PDF) *</label>
+        <input type="file" required>
+
+        <label>Upload Passport Size Photo *</label>
+        <input type="file" required>
+
+        <button type="submit">Submit & Verify Application</button>
+
+    </form>
+</div>
+
+<!-- Fake Verification Screen -->
+<div class="verification-screen" id="verifySection">
+    <h2>Verifying Your Data...</h2>
+    <p>Please wait while our system validates your information.</p>
+
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+</div>
+
+<script>
+
+document.getElementById("internForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    // Hide form
+    document.getElementById("formSection").style.display = "none";
+    document.getElementById("verifySection").style.display = "block";
+
+    let progress = document.getElementById("progress");
+    let width = 0;
+
+    let interval = setInterval(function(){
+        if(width >= 100){
+            clearInterval(interval);
+            window.location.href = "success.html";
+        } else {
+            width += 10;
+            progress.style.width = width + "%";
+        }
+    }, 400);
+
+});
+
+</script>
 
 </body>
 </html>
